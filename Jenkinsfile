@@ -22,6 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 bat 'mvn test'
+                bat 'dir target\\surefire-reports' // listar arquivos gerados
             }
         }
     }
@@ -32,4 +33,6 @@ pipeline {
         }
     }
 }
+
+
 
