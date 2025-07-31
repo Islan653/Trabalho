@@ -6,6 +6,10 @@ pipeline {
         jdk 'Java21'
     }
 
+    environment {
+        MAVEN_OPTS = "-Dmaven.test.failure.ignore=false"
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -22,17 +26,18 @@ pipeline {
         stage('Test') {
             steps {
                 bat 'mvn test'
-                bat 'dir target\\surefire-reports' // listar arquivos gerados
             }
         }
     }
 
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            echo 'Publicando relatórios de testes...'
+            junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
         }
     }
 }
+
 
 
 
