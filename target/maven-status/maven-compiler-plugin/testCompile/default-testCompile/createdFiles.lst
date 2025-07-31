@@ -1,0 +1,9 @@
+steps\LoginSteps.class
+pages\LoginPage.class
+testes\ComprarProdutoTest.class
+pages\HomePage.class
+testes\LogoutTest.class
+elementos\Elementos.class
+drivers\Drivers.class
+metodos\Metodos.class
+runner\TestRunner.class
