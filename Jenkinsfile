@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven_3.8.6' // ou o nome que você cadastrou no Jenkins
-        jdk 'Java_17' // ou sua versão
+        maven 'Maven399'
+        jdk 'Java21'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://seurepositorio.git' // ou deixe assim se estiver usando SCM
+                git 'https://github.com/Islan653/Trabalho.git'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'mvn clean install'
+                bat 'mvn clean compile'
             }
         }
 
@@ -32,3 +32,4 @@ pipeline {
         }
     }
 }
+
